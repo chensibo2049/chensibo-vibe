@@ -43,29 +43,27 @@ mkdir -p ~/.claude/skills && cp -r chensibo-vibe ~/.claude/skills/
 
 **只想拿数据**：`references/glossary-data.json` 单文件即可，MIT，可直接集成进你自己的 Agent。
 
-## 发布（真开源，兑现官网"开源"字样）
+## 仓库（已开源 · 2026-10-03）
 
-> 2026-10-03 现状：官网已按"**不挂不存在的开源物**"红线去掉"开源"二字（口径：「我们的 Skill chensibo-vibe · 整理发布中」）。
-> 本包今晚整理就绪（`git init` + 首次提交），**推送公开仓后**按下面第 3 步把"开源"字样加回官网。
+**真实地址：<https://github.com/chensibo2049/chensibo-vibe>**（GitHub public，老板个人号推送；
+匿名 `git ls-remote` HEAD `3a88dc279056491893c3c277d2eab7c1209cc6d7` 与本包首提交一致，HTTP 200，LICENSE MIT 可读）
 
-1. **CNB 公开仓（首选）**：在 <https://cnb.cool> 建 `chensibo/chensibo-vibe` 仓库（创建时选 **Public**；
-   若当前账号/组织不支持公开仓，见第 2 步），然后：
+```bash
+git clone https://github.com/chensibo2049/chensibo-vibe.git
+```
 
-   ```bash
-   cd chensibo-vibe
-   git remote add origin https://cnb.cool/chensibo/chensibo-vibe.git
-   git push -u origin main
-   ```
+> ⚠️ 早期计划里的 CNB 地址 `cnb.cool/chensibo/chensibo-vibe` **不存在**（CNB 建仓 API 不可用，只有网页能建）——
+> **一律使用上述 GitHub 地址**；若日后在 CNB 网页建镜像仓，再在此处追加。
 
-2. **GitHub 公开仓（备选）**：`gh repo create chensibo/chensibo-vibe --public --source=. --push`
-   （或网页新建 public 仓后 push）。
+### 开源状态闭环（官网 ↔ 仓库）
 
-3. **推送成功后回官网加回"开源"字样**（3 处 + 底注，去掉"整理发布中"限定）：
-   - `docs/glossary.md`：description、AI 小课堂段、四要素尾注、FAQ Q2、FAQ Q5、CTA note
-   - `docs/.vitepress/theme/components/GlossaryExplorer.vue` 底注
-   - 并给每处补仓库链接 `<https://cnb.cool/chensibo/chensibo-vibe>`（或 GitHub 地址）
-   - **同时删掉 `scripts/assert-narrative.mjs` 禁词表里的 `开源 Skill` / `MIT 开源` 两条**
-     （注释已写明"推仓后移除"），删完跑一遍断言 8/8 即收口。
+| 环节 | 状态 |
+| --- | --- |
+| 官网去掉"开源"字样（不挂不存在的东西） | ✅ 2026-10-03 白天，8 处，断言禁词防回潮 |
+| Skill 包整理（SKILL.md + 4 references + LICENSE） | ✅ 首提交 `3a88dc2` |
+| 推公开仓 | ✅ 墨衡推送 GitHub，ls-remote 同 hash 验证 |
+| **官网加回"开源"+ 仓库链接** | ✅ 7 处（glossary 6 + GlossaryExplorer 底注），`release=20261003202352-8d48399` |
+| 删断言禁词 2 条 + 必含链接（htmlMust 源码检查） | ✅ 断言 8/8 PASS |
 
 ## 维护（与官网同源）
 
